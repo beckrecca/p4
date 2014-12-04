@@ -14,24 +14,38 @@
 Route::get('/', function() 
 {
 	$todo = "<ul>
-            <li>Deal with time and date formatting nightmare</li>
-			<li>Create general filter so only logged in user can access most pages</li>
-			<li>Create view for comment form</li>
+            <li>Change models to show who said what</li>
+            <li>Deal with sign up form</li>
             <li>Add event form validation</li>
             <li>Add comment form validation</li>
+            <li>Create general filter so only logged in user can access most pages</li>
             <li>Validation validation validation</li>
             <li>Sort events by date</li>
+            <li>Make events/comment views prettier</li>
+            <li>Create edit user profile page</li>
+            <li>Adjust time zone (for comments)</li>
             <a href='/events'>Continue anyway</a>";
 	return $todo;
 });
 
-Route::get('/events', 'HolidayController@index');
+Route::get('/commenttest', function() 
+{
+    $comments = Comment::where('holiday_id', '=', '3')->get();
 
-Route::get('/events/{id}', 'HolidayController@view');
+    foreach ($comments as $comment) {
+        echo $comment['text'];
+    }
+});
+
+# EVENTS
+
+Route::get('/events', 'HolidayController@index');
 
 Route::get('/events/create', 'HolidayController@create');
 
 Route::post('/events/create', 'HolidayController@handleCreate');
+
+Route::get('/events/view/{id}', 'HolidayController@view');
 
 Route::get('/events/edit/{id}', 'HolidayController@edit');
 
@@ -40,6 +54,14 @@ Route::post('/events/edit', 'HolidayController@handleEdit');
 Route::get('/events/delete/{id}', 'HolidayController@delete');
 
 Route::post('/events/delete', 'HolidayController@handleDelete');
+
+# COMMENTS
+
+Route::get('/comments/{id}', 'CommentController@create');
+
+Route::post('/comments', 'CommentController@handleCreate');
+
+# MISCELLANOUS TO BE DEALT WITH
 
 Route::get('whoops', function() {
     return View::make('whoops');

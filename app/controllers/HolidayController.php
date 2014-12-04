@@ -9,7 +9,8 @@ class HolidayController extends BaseController
         return View::make('index')->with('events', $events);
     }
 
-    public function view($id) {
+    public function view($id) 
+    {
         try {
             $event = Holiday::findOrFail($id);
         }
@@ -17,7 +18,10 @@ class HolidayController extends BaseController
             return Redirect::to('/whoops');
         }
 
-        return View::make('event_page')->with('event', $event);
+        $comments = Comment::where('holiday_id', '=', $id)->get();
+
+        return View::make('event_page')->with('event', $event)
+                                       ->with('comments', $comments);
     }
 
     public function create()
