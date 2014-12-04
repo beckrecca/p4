@@ -2,5 +2,5 @@
 
 class Comment extends Eloquent
 {
-
+	
 }

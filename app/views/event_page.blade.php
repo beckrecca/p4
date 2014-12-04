@@ -20,7 +20,7 @@
 		<p>
 			{{ $comment['text'] }}
 			<br>
-			by {{ $comment['user_id']}}  <!-- deal with this later  -->
+			by {{ $users[$comment['id']] }} 
 			at <?php $comment_timestamp = date_create($comment['created_at']); ?>
 			{{ date_format($comment_timestamp, 'm/d/Y g:i A') }}
 		</p>

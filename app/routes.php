@@ -14,27 +14,17 @@
 Route::get('/', function() 
 {
 	$todo = "<ul>
-            <li>Change models to show who said what</li>
             <li>Deal with sign up form</li>
             <li>Add event form validation</li>
             <li>Add comment form validation</li>
             <li>Create general filter so only logged in user can access most pages</li>
             <li>Validation validation validation</li>
-            <li>Sort events by date</li>
             <li>Make events/comment views prettier</li>
             <li>Create edit user profile page</li>
             <li>Adjust time zone (for comments)</li>
+            <li>Comment on every function model etc EVER</li>
             <a href='/events'>Continue anyway</a>";
 	return $todo;
-});
-
-Route::get('/commenttest', function() 
-{
-    $comments = Comment::where('holiday_id', '=', '3')->get();
-
-    foreach ($comments as $comment) {
-        echo $comment['text'];
-    }
 });
 
 # EVENTS

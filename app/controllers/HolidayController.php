@@ -5,7 +5,7 @@ class HolidayController extends BaseController
     public function index()
     {
         // Show all the events. Stretch: pagination?
-        $events = Holiday::all();
+        $events = Holiday::whenAscending()->get();
         return View::make('index')->with('events', $events);
     }
 
@@ -20,8 +20,11 @@ class HolidayController extends BaseController
 
         $comments = Comment::where('holiday_id', '=', $id)->get();
 
+        $users = User::find_usernames($comments);
+
         return View::make('event_page')->with('event', $event)
-                                       ->with('comments', $comments);
+                                       ->with('comments', $comments)
+                                       ->with('users', $users);
     }
 
     public function create()

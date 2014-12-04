@@ -35,4 +35,21 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->hasMany('Holiday');
     }
 
+    # Let's create a function to return who wrote which comment.
+	public static function find_usernames ($comments) {
+
+		$usernames = Array();
+
+		foreach ($comments as $comment)
+		{
+			$user = User::where('id', '=', $comment['user_id'])->get();
+			# There should only be one user with this id but we need a foreach anyway
+			foreach ($user as $collection_item) {
+				$usernames[$comment['id']] = $collection_item['username'];				
+			}
+		}
+		
+		return $usernames;
+	}
+
 }
