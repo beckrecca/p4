@@ -14,7 +14,8 @@
 Route::get('/', function() 
 {
 	$todo = "<ul>
-            <li>Deal with sign up / log in forms</li>
+            <li>Post sign up form in UserController</li>
+            <li>Get and post log in form in UserController</li>
             <li>Add event form validation</li>
             <li>Add comment form validation</li>
             <li>Create general filter so only logged in user can access most pages</li>
@@ -57,40 +58,13 @@ Route::post('/comments', 'CommentController@handleCreate');
 
 Route::get('/signup', 'UserController@getSignup');
 
-Route::post('/signup', 'UserController@postSignup')
+Route::post('/signup', 'UserController@postSignup');
 
 # MISCELLANOUS TO BE DEALT WITH
 
 Route::get('whoops', function() {
     return View::make('whoops');
 });
-
-Route::post('/signup', 
-    array(
-        'before' => 'csrf', 
-        function() {
-
-            $user = new User;
-            $user->email    = Input::get('email');
-            $user->password = Hash::make(Input::get('password'));
-
-            # Try to add the user 
-            try {
-                $user->save();
-            }
-            # Fail
-            catch (Exception $e) {
-                return Redirect::to('/signup')->with('flash_message', 'Sign up failed; please try again.')->withInput();
-            }
-
-            # Log the user in
-            Auth::login($user);
-
-            return Redirect::to('/');
-
-        }
-    )
-);
 
 Route::get('/login',
     array(

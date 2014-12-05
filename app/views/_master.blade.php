@@ -18,19 +18,25 @@
     <header class="row">
     	<h1>Dorisdays</h1>
      </header>
+
      <div class="navigation">
         <ul>
             <li><a href="/events">View events</a></li>
             <li><a href="/events/create">Create an event</a></li>
             <li>
                 @if(Auth::check())
-                <a href='/logout'>Log out {{ Auth::user()->email; }}</a>
+                <a href='/logout'>Log out {{ Auth::user()->username; }}</a>
                 @else 
                 <a href='/signup'>Sign up</a> or <a href='/login'>Log in</a>
                 @endif
             </li>
         </ul>
      </div>
+
+     @if(Session::get('flash_message'))
+        <div class='flash-message'>{{ Session::get('flash_message') }}</div>
+     @endif
+
     @yield('content')
 </div>
 

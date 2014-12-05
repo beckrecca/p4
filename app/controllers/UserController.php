@@ -20,20 +20,44 @@ class UserController extends BaseController
     public function postSignup()
     {
         // Handle sign up form submission.
-        $event = new Holiday();
-        $event->title = $_POST['title'];
-        $event->location = $_POST['location'];
-        $time = $_POST['hour'];
-        $partofday = $_POST['m'];
-        if ($partofday) {
-            $time += 12;
+        # Step 1) Define the rules
+        $rules = array(
+            'email' => 'required|email|unique:users,email',
+            'username' => 'required|unique:users,username',
+            'password' => 'required|min:6'
+        );
+
+        # Step 2)
+        $validator = Validator::make(Input::all(), $rules);
+
+        # Step 3
+        if($validator->fails()) {
+            return Redirect::to('/signup')
+                ->with('flash_message', 'Sign up failed!')
+                ->withInput()
+                ->withErrors($validator);
         }
-        $time = $time . ":00:00";
-        $event->when = $_POST['date'] . " " . $time;
-        $event->description = $_POST['description'];
-        $event->user_id = Auth::id();
-        $event->save();
-        return Redirect::to('/events');
+
+        $user = new User;
+        $user->email = $_POST['email'];
+        $user->password = Hash::make($_POST['password']);
+        $user->username = $_POST['username'];
+        $month = $_POST['month'];
+        $day = $_POST['day'];
+        $year = $_POST['year'];
+        $user->DOB = $year . "-" . $month . "-" . $day;
+
+        try {
+            $user->save();
+        }
+        catch (Exception $e) {
+            return Redirect::to('/signup')
+                ->with('flash_message', 'Sign up failed; please try again. I am so sorry.')
+                ->withInput();
+        }
+        # Log in
+        Auth::login($user);
+        return Redirect::to('/events')->with('flash_message', 'You signed up successfully, good work!');
     }
 
     public function edit($id)
