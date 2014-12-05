@@ -30,6 +30,9 @@
 
 	{{ Form::close() }}
 
+@stop
+
+@section('/body')
 <script>
   $(function() {
     $("#datepicker").datepicker({dateFormat: 'yy-mm-dd'});

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>@yield('title', 'Cute Helper')</title>
+    <title>@yield('title', 'Dorisdays')</title>
     <!-- makes the layout responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
@@ -22,9 +22,18 @@
         <ul>
             <li><a href="/events">View events</a></li>
             <li><a href="/events/create">Create an event</a></li>
+            <li>
+                @if(Auth::check())
+                <a href='/logout'>Log out {{ Auth::user()->email; }}</a>
+                @else 
+                <a href='/signup'>Sign up</a> or <a href='/login'>Log in</a>
+                @endif
+            </li>
         </ul>
      </div>
     @yield('content')
 </div>
+
+@yield('/body')
 </body>
 </html>

@@ -1,13 +1,36 @@
+@extends('_master')
+
+@section('title')
+	Sign Up
+@stop
+
+@section('content')
+
 <h1>Sign up</h1>
 
 {{ Form::open(array('url' => '/signup')) }}
 
-    Email<br>
+	{{ Form::label('username') }}
+	{{ Form::text('username') }} <br><br>
+
+    {{ Form::label('email') }}
     {{ Form::text('email') }}<br><br>
 
-    Password:<br>
+    {{ Form::label('password') }}
     {{ Form::password('password') }}<br><br>
 
+    {{ Form::label('date of birth')}}
+    <br>
+    {{Form::label('month')}}
+		{{Form::selectRange('month', 1, 12)}}
+	{{Form::label('day')}}
+		{{Form::selectRange('day', 1, 31)}}
+	{{Form::label('year')}}
+		{{Form::selectRange('year', 2000, 1900)}}
+        <br>
+    <br>
     {{ Form::submit('Submit') }}
 
 {{ Form::close() }}
+
+@stop

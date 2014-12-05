@@ -14,15 +14,17 @@
 Route::get('/', function() 
 {
 	$todo = "<ul>
-            <li>Deal with sign up form</li>
+            <li>Deal with sign up / log in forms</li>
             <li>Add event form validation</li>
             <li>Add comment form validation</li>
             <li>Create general filter so only logged in user can access most pages</li>
             <li>Validation validation validation</li>
             <li>Make events/comment views prettier</li>
             <li>Create edit user profile page</li>
+            <li>Have main page only show upcoming events</li>
             <li>Adjust time zone (for comments)</li>
             <li>Comment on every function model etc EVER</li>
+            <li>Layout/CSS etc</li>
             <a href='/events'>Continue anyway</a>";
 	return $todo;
 });
@@ -51,20 +53,17 @@ Route::get('/comments/{id}', 'CommentController@create');
 
 Route::post('/comments', 'CommentController@handleCreate');
 
+# USERS
+
+Route::get('/signup', 'UserController@getSignup');
+
+Route::post('/signup', 'UserController@postSignup')
+
 # MISCELLANOUS TO BE DEALT WITH
 
 Route::get('whoops', function() {
     return View::make('whoops');
 });
-
-Route::get('/signup',
-    array(
-        'before' => 'guest',
-        function() {
-            return View::make('signup');
-        }
-    )
-);
 
 Route::post('/signup', 
     array(
