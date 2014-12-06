@@ -23,8 +23,8 @@
     {{ Form::label('new_password') }}
     {{ Form::password('new_password') }}<br><br>
 
-    {{ Form::label('confirm_new_password') }}
-    {{ Form::password('confirm_new_password') }}<br><br>
+    {{ Form::label('new_password_confirmation') }}
+    {{ Form::password('new_password_confirmation') }}<br><br>
 
     {{ Form::label('date of birth')}}
     <br>

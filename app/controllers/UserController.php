@@ -122,8 +122,7 @@ class UserController extends BaseController
         // Handle edit profile form submission.
         # Step 1) Define the rules
         $rules = array(
-            'new_password' => 'min:7',
-            'confirm_password' => 'same:new_password'
+            'new_password' => 'min:7|same:new_password_confirmation'
         );
 
         # Step 2)

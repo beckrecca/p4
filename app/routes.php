@@ -13,19 +13,7 @@
 
 Route::get('/', function() 
 {
-	$todo = "
-            <h1>REBECCA'S UGLY TO DO LIST</h1>
-            <ul>
-            <li>Create edit user profile page</li>
-            <li>Have main page only show upcoming events</li>
-            <li>Adjust time zone (for comments)</li>
-            <li>Layout/CSS etc</li>
-            <li>Create seeds</li>
-            <li>Disable debugbar</li>
-            <li>Launch to production</li>
-            <li>Make sure code is readable (add comments)</li>
-            <a href='/events'>Continue anyway</a>";
-	return $todo;
+	return View::make('temp');
 });
 
 # EVENTS

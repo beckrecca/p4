@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>@yield('title', 'Dorisdays')</title>
+    <title>@yield('title', 'A work in progress')</title>
     <!-- makes the layout responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
@@ -15,9 +15,6 @@
 
 <body>
 <div class="container">
-    <header class="row">
-    	<h1>Dorisdays</h1>
-     </header>
 
      <div class="navigation">
         <ul>
@@ -25,7 +22,11 @@
             <li><a href="/events/create">Create an event</a></li>
             <li>
                 @if(Auth::check())
+                <a href="/edit_profile">Edit profile</a>
+            </li>
+            <li>
                 <a href='/logout'>Log out {{ Auth::user()->username; }}</a>
+            </li>
                 @else 
                 <a href='/signup'>Sign up</a> or <a href='/login'>Log in</a>
                 @endif
