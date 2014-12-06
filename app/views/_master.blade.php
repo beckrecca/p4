@@ -18,7 +18,8 @@
 
      <div class="navigation">
         <ul>
-            <li><a href="/events">View events</a></li>
+            <li><a href="/events">Home</a></li>
+            <li><a href="/events/all">View all events</a></li>
             <li><a href="/events/create">Create an event</a></li>
             <li>
                 @if(Auth::check())

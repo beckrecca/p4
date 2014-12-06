@@ -37,4 +37,12 @@ class Holiday extends Eloquent
         $when['timeofday'] = $timeofday;
         return $when;
     }
+
+    # Let's create a method that will only return upcoming events.
+    public static function upcoming() {
+        $t = time();
+        $t = date('Y-m-d', $t);
+        $events = Holiday::where('when', '>', $t);
+        return $events;
+    }
 }

@@ -20,6 +20,8 @@ Route::get('/', function()
 
 Route::get('/events', 'HolidayController@index');
 
+Route::get('/events/all', 'HolidayController@all');
+
 Route::get('/events/create', 'HolidayController@create');
 
 Route::post('/events/create', 'HolidayController@handleCreate');

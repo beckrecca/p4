@@ -11,9 +11,20 @@ class HolidayController extends BaseController
 
     public function index()
     {
+        // Show all the upcoming events.
+        $events = Holiday::upcoming()->whenAscending()->get();
+        $header = "Upcoming Events";
+        return View::make('index')->with('events', $events)
+                                  ->with('header', $header);
+    }
+
+    public function all()
+    {
         // Show all the events. Stretch: pagination?
         $events = Holiday::whenAscending()->get();
-        return View::make('index')->with('events', $events);
+        $header = "All Events";
+        return View::make('index')->with('events', $events)
+                                  ->with('header', $header);
     }
 
     public function view($id) 

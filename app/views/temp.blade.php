@@ -18,7 +18,6 @@
 @endforeach
 
 <h3>A running to do list...</h3>
-<li>Have main page only show upcoming events (try and create something in Holiday model to this effect)</li>
 <li>Adjust time zone (for comments)</li>
 <li>Layout/CSS MAKE PRETTY etc</li>
 <li>Create seeds</li>

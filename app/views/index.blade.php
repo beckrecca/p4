@@ -2,6 +2,8 @@
 
 @section('content')
 
+	<h1> {{ $header }} </h2>
+
 	@if (isset($events))
 		@foreach ($events as $event)
 			<p>
