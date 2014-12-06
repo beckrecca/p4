@@ -14,8 +14,6 @@
 Route::get('/', function() 
 {
 	$todo = "<ul>
-            <li>Post sign up form in UserController</li>
-            <li>Get and post log in form in UserController</li>
             <li>Add event form validation</li>
             <li>Add comment form validation</li>
             <li>Create general filter so only logged in user can access most pages</li>
@@ -60,39 +58,15 @@ Route::get('/signup', 'UserController@getSignup');
 
 Route::post('/signup', 'UserController@postSignup');
 
-# MISCELLANOUS TO BE DEALT WITH
+Route::get('/login', 'UserController@getLogin');
+
+Route::post('/login', 'UserController@postLogin');
+
+# MISCELLANOUS
 
 Route::get('whoops', function() {
     return View::make('whoops');
 });
-
-Route::get('/login',
-    array(
-        'before' => 'guest',
-        function() {
-            return View::make('login');
-        }
-    )
-);
-
-Route::post('/login', 
-    array(
-        'before' => 'csrf', 
-        function() {
-
-            $credentials = Input::only('email', 'password');
-
-            if (Auth::attempt($credentials, $remember = true)) {
-                return Redirect::intended('/')->with('flash_message', 'Welcome Back!');
-            }
-            else {
-                return Redirect::to('/login')->with('flash_message', 'Log in failed; please try again.');
-            }
-
-            return Redirect::to('login');
-        }
-    )
-);
 
 Route::get('/logout', function() {
 

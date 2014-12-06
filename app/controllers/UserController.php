@@ -24,7 +24,8 @@ class UserController extends BaseController
         $rules = array(
             'email' => 'required|email|unique:users,email',
             'username' => 'required|unique:users,username',
-            'password' => 'required|min:6'
+            'password' => 'required|min:7',
+            'password_confirm' => 'required|same:password'
         );
 
         # Step 2)
@@ -58,6 +59,26 @@ class UserController extends BaseController
         # Log in
         Auth::login($user);
         return Redirect::to('/events')->with('flash_message', 'You signed up successfully, good work!');
+    }
+
+    public function getLogin()
+    {
+        // Show the sign up form.
+        return View::make('login');
+    }
+
+    public function postLogin()
+    {
+        $credentials = Input::only('username', 'password');
+        
+        if (Auth::attempt($credentials, $remember = false)) {
+            return Redirect::intended('/events')->with('flash_message', 'You logged in successfully!');
+        }
+        else {
+            return Redirect::to('/login')
+                ->with('flash_message', 'Log in failed; please try again.')
+                ->withInput();
+        }
     }
 
     public function edit($id)

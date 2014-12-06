@@ -10,10 +10,10 @@
 
 {{ Form::open(array('url' => '/login')) }}
 
-    Email<br>
-    {{ Form::text('email') }}<br><br>
+    {{ Form::label('username') }}
+    {{ Form::text('username') }}<br><br>
 
-    Password:<br>
+    {{ Form::label('password') }}
     {{ Form::password('password') }}<br><br>
 
     {{ Form::submit('Submit') }}

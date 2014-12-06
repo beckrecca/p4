@@ -23,6 +23,9 @@
     {{ Form::label('password') }}
     {{ Form::password('password') }}<br><br>
 
+    {{ Form::label('password_confirm') }}
+    {{ Form::password('password_confirm') }}<br><br>
+
     {{ Form::label('date of birth')}}
     <br>
     {{Form::label('month')}}
