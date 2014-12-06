@@ -13,17 +13,19 @@
 
 Route::get('/', function() 
 {
-	$todo = "<ul>
-            <li>Add event form validation</li>
+	$todo = "
+            <h1>REBECCA'S UGLY TO DO LIST</h1>
+            <ul>
             <li>Add comment form validation</li>
             <li>Create general filter so only logged in user can access most pages</li>
-            <li>Validation validation validation</li>
-            <li>Make events/comment views prettier</li>
             <li>Create edit user profile page</li>
             <li>Have main page only show upcoming events</li>
             <li>Adjust time zone (for comments)</li>
-            <li>Comment on every function model etc EVER</li>
             <li>Layout/CSS etc</li>
+            <li>Create seeds</li>
+            <li>Disable debugbar</li>
+            <li>Launch to production</li>
+            <li>Make sure code is readable (add comments)</li>
             <a href='/events'>Continue anyway</a>";
 	return $todo;
 });

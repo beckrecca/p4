@@ -2,6 +2,13 @@
 
 class HolidayController extends BaseController
 {
+
+    public function __construct() {
+        # Make sure BaseController construct gets called
+        parent::__construct();
+        $this->beforeFilter('auth');
+    }
+
     public function index()
     {
         // Show all the events. Stretch: pagination?
@@ -35,6 +42,27 @@ class HolidayController extends BaseController
 
     public function handleCreate()
     {
+        $rules = array(
+            'title' => 'required|max:128',
+            'description' => 'max:160',
+            'location' => 'required',
+            'date' => 'required|date',
+            'time' => 'between:1,12|numeric',
+            'm' => 'between:0,1|numeric',
+
+        );
+
+        # Step 2)
+        $validator = Validator::make(Input::all(), $rules);
+
+        # Step 3
+        if($validator->fails()) {
+            return Redirect::to('/events/create')
+                ->with('flash_message', 'You really messed up!')
+                ->withInput()
+                ->withErrors($validator);
+        }
+
         // Handle add event form submission.
         $event = new Holiday();
         $event->title = $_POST['title'];

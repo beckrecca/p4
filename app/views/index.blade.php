@@ -1,9 +1,5 @@
 @extends('_master')
 
-@section('title')
-	Test!
-@stop
-
 @section('content')
 
 	@if (isset($events))

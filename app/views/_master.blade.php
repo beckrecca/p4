@@ -34,7 +34,7 @@
      </div>
 
      @if(Session::get('flash_message'))
-        <div class='flash-message'>{{ Session::get('flash_message') }}</div>
+        <div class="flash-message">{{ Session::get('flash_message') }}</div>
      @endif
 
     @yield('content')
