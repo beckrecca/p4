@@ -22,7 +22,6 @@
 <li>Adjust time zone (for comments)</li>
 <li>Layout/CSS MAKE PRETTY etc</li>
 <li>Create seeds</li>
-<li>Disable debugbar</li>
 <li>Launch to production</li>
 <a href='/events'>Continue anyway</a>
 
