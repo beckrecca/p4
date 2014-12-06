@@ -18,19 +18,20 @@
 		{{ Form::text('location', $event['location']) }}
 		<br>
 		{{ Form::label('date')}}
-		<input type="text" id="datepicker" size="30" name="date">
+		<input type="text" id="datepicker" size="30" name="date" value="{{ $when['date']}}">
 		<br>
 
 		{{Form::label('time')}}
-		{{Form::selectRange('hour', 1, 12)}}
-		{{Form::select('m', array(0 => "AM", 1 => "PM"), 0)}}
+		{{Form::selectRange('hour', 1, 12, $when['time']) }}
+		{{Form::select('m', array(0 => "AM", 1 => "PM"), $when['timeofday'])}}
         <br>
 		{{ Form::label('description')}}
 		{{ Form::text('description', $event['description'])}}
 		<br>
 		{{ Form::submit() }}
-
+		<a href="/events" class="btn btn-default btn-sm">Cancel</a>
 	{{ Form::close() }}
+
 
 @stop
 

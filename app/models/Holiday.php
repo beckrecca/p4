@@ -13,4 +13,27 @@ class Holiday extends Eloquent
     {
         return $query->orderBy('when','ASC');
     } 
+
+    # Turn the datetime entry into something we can actually use
+    public static function when($id) {
+        try {
+            $event = Holiday::findOrFail($id);
+        }
+        catch(exception $e) {
+            return Redirect::to('/whoops');
+        }
+
+        $datetime = new DateTime(($event['when']));
+
+        $date = $datetime->format('Y-m-d');
+        $time = $datetime->format('g');
+        $timeofday = $datetime->format('H');
+        if ($timeofday >= 12) $timeofday = 1;
+
+        $when = Array();
+        $when['date'] = $date;
+        $when['time'] = $time;
+        $when['timeofday'] = $timeofday;
+        return $when;
+    }
 }

@@ -42,6 +42,7 @@ class HolidayController extends BaseController
 
     public function handleCreate()
     {
+        # Step 1)
         $rules = array(
             'title' => 'required|max:128',
             'description' => 'max:160',
@@ -88,16 +89,33 @@ class HolidayController extends BaseController
         catch(exception $e) {
             return Redirect::to('/whoops');
         }
-        return View::make('edit')->with('event', $event);
+        $when = Holiday::when($id);
+        return View::make('edit')->with('event', $event)
+                                 ->with('when', $when);
     }
 
     public function handleEdit()
     {
-        try {
-            $event = Holiday::findOrFail($_POST['id']);
-        }
-        catch(exception $e) {
-            return Redirect::to('/whoops');
+        # Step 1)
+        $rules = array(
+            'title' => 'required|max:128',
+            'description' => 'max:160',
+            'location' => 'required',
+            'date' => 'required|date',
+            'time' => 'between:1,12|numeric',
+            'm' => 'between:0,1|numeric',
+
+        );
+
+        # Step 2)
+        $validator = Validator::make(Input::all(), $rules);
+
+        # Step 3
+        if($validator->fails()) {
+            return Redirect::to('/events/create')
+                ->with('flash_message', 'You really messed up!')
+                ->withInput()
+                ->withErrors($validator);
         }
         
         $event->title = $_POST['title'];
