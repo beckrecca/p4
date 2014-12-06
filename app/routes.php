@@ -62,6 +62,12 @@ Route::get('/login', 'UserController@getLogin');
 
 Route::post('/login', 'UserController@postLogin');
 
+Route::get('/profile', 'UserController@view');
+
+Route::get('/edit_profile', 'UserController@edit');
+
+Route::post('/edit_profile', 'UserController@handleEdit');
+
 # MISCELLANOUS
 
 Route::get('whoops', function() {

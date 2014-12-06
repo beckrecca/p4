@@ -11,8 +11,8 @@ class UserController extends BaseController
             ));
         $this->beforeFilter('auth',
             array(
-                'only' => array('edit','handleEdit')
-            )););
+                'only' => array('view', 'edit','handleEdit')
+            ));
     }
 
     public function getSignup()
@@ -87,42 +87,73 @@ class UserController extends BaseController
 
     public function view()
     {
-        
-    }
-
-    public function edit($id)
-    {
         try {
-            $user = User::findOrFail($id);
+            $user = User::findOrFail(Auth::id());
         }
         catch(exception $e) {
             return Redirect::to('/whoops');
         }
-        return View::make('edit_profile')->with('user', $user);
+
+        return View::make('/profile')->with('user', $user);
+    }
+
+    public function edit()
+    {
+        try {
+            $user = User::findOrFail(Auth::id());
+        }
+        catch(exception $e) {
+            return Redirect::to('/whoops');
+        }
+        $dob = User::DOB(Auth::id());
+        return View::make('/edit_profile')->with('user', $user)
+                                          ->with('dob', $dob);
     }
 
     public function handleEdit()
     {
         try {
-            $user = User::findOrFail($_POST['id']);
+            $user = User::findOrFail(Auth::id());
         }
         catch(exception $e) {
             return Redirect::to('/whoops');
         }
-        
-        $event->title = $_POST['title'];
-        $event->location = $_POST['location'];
-        $time = $_POST['hour'];
-        $partofday = $_POST['m'];
-        if ($partofday) {
-            $time += 12;
+
+        // Handle edit profile form submission.
+        # Step 1) Define the rules
+        $rules = array(
+            'new_password' => 'min:7',
+            'confirm_password' => 'same:new_password'
+        );
+
+        # Step 2)
+        $validator = Validator::make(Input::all(), $rules);
+
+        # Step 3
+        if($validator->fails()) {
+            return Redirect::to('/edit_profile')
+                ->with('flash_message', 'FAIL!')
+                ->withInput()
+                ->withErrors($validator);
         }
-        $time = $time . ":00:00";
-        $event->when = $_POST['date'] . " " . $time;
-        $event->description = $_POST['description'];
-        $event->user_id = Auth::id();
-        $event->save();
-        return Redirect::action('/profile')
+        if (isset($_POST['new_password'])) {
+            $user->password = Hash::make($_POST['new_password']);
+        }
+        $user->username = $_POST['username'];
+        $month = $_POST['month'];
+        $day = $_POST['day'];
+        $year = $_POST['year'];
+        $user->DOB = $year . "-" . $month . "-" . $day;
+
+        try {
+            $user->save();
+        }
+        catch (Exception $e) {
+            return Redirect::to('/signup')
+                ->with('flash_message', 'Edit profile failed; please try again. I am so sorry.')
+                ->withInput();
+        }
+        return Redirect::to('/profile')
                         ->with('flash_message', 'Your profile changes were saved.');
     }
 }

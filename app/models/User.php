@@ -35,7 +35,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->hasMany('Holiday');
     }
 
-    # Let's create a function to return who wrote which comment.
+    # Let's create a method to return who wrote which comment.
 	public static function find_usernames ($comments) {
 
 		$usernames = Array();
@@ -50,6 +50,29 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		}
 		
 		return $usernames;
+	}
+
+	# Let's create a method to break down the DOB.
+	public static function DOB($id) {
+		try {
+            $user = User::findOrFail($id);
+        }
+        catch(exception $e) {
+            return Redirect::to('/whoops');
+        }
+
+        $datetime = new DateTime($user["DOB"]);
+
+        $month = $datetime->format('m');
+        $month = intval($month);
+        $day = $datetime->format('d');
+        $year = $datetime->format('Y');
+
+        $DOB = Array();
+        $DOB['month'] = $month;
+        $DOB['day'] = $day;
+        $DOB['year'] = $year;
+        return $DOB;
 	}
 
 }
