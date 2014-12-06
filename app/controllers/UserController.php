@@ -9,6 +9,10 @@ class UserController extends BaseController
             array(
                 'only' => array('getLogin','getSignup')
             ));
+        $this->beforeFilter('auth',
+            array(
+                'only' => array('edit','handleEdit')
+            )););
     }
 
     public function getSignup()
@@ -81,21 +85,26 @@ class UserController extends BaseController
         }
     }
 
+    public function view()
+    {
+        
+    }
+
     public function edit($id)
     {
         try {
-            $event = Holiday::findOrFail($id);
+            $user = User::findOrFail($id);
         }
         catch(exception $e) {
             return Redirect::to('/whoops');
         }
-        return View::make('edit')->with('event', $event);
+        return View::make('edit_profile')->with('user', $user);
     }
 
     public function handleEdit()
     {
         try {
-            $event = Holiday::findOrFail($_POST['id']);
+            $user = User::findOrFail($_POST['id']);
         }
         catch(exception $e) {
             return Redirect::to('/whoops');
@@ -113,6 +122,7 @@ class UserController extends BaseController
         $event->description = $_POST['description'];
         $event->user_id = Auth::id();
         $event->save();
-        return Redirect::action('HolidayController@index');
+        return Redirect::action('/profile')
+                        ->with('flash_message', 'Your profile changes were saved.');
     }
 }

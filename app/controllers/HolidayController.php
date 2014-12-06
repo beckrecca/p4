@@ -58,7 +58,7 @@ class HolidayController extends BaseController
 
         # Step 3
         if($validator->fails()) {
-            return Redirect::to('/events/create')
+            return Redirect::to('/events')
                 ->with('flash_message', 'You really messed up!')
                 ->withInput()
                 ->withErrors($validator);
@@ -96,6 +96,14 @@ class HolidayController extends BaseController
 
     public function handleEdit()
     {
+
+        try {
+            $event = Holiday::findOrFail(Input::get('id'));
+        }
+        catch(exception $e) {
+            return Redirect::to('/events')->with('flash_message', 'This event does not exist, how did you do that?');
+        }
+
         # Step 1)
         $rules = array(
             'title' => 'required|max:128',
@@ -112,8 +120,8 @@ class HolidayController extends BaseController
 
         # Step 3
         if($validator->fails()) {
-            return Redirect::to('/events/create')
-                ->with('flash_message', 'You really messed up!')
+            return Redirect::to('/events')
+                ->with('flash_message', 'You really messed up! Your changes were not saved.')
                 ->withInput()
                 ->withErrors($validator);
         }

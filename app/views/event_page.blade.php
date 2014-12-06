@@ -11,10 +11,14 @@
 	When: <?php $date = date_create($event['when']); ?>
 			{{ date_format($date, 'm/d/Y g:i A') }}<br>
 	What: {{ $event['description'] }}<br>
-	<a href="edit/{{$event['id']}}">Edit</a> |
-	<a href="delete/{{$event['id']}}">Delete</a>
+	<a href="/events/edit/{{$event['id']}}">Edit</a> |
+	<a href="/events/delete/{{$event['id']}}">Delete</a>
 
 	<h2>Comments</h2> 
+
+	<p>
+		<a href="/comments/{{$event['id']}}">Add a Comment</a>
+	</p>
 
 	@foreach ($comments as $comment)
 		<p>
@@ -25,9 +29,5 @@
 			{{ date_format($comment_timestamp, 'm/d/Y g:i A') }}
 		</p>
 	@endforeach
-
-	<p>
-		<a href="/comments/{{$event['id']}}">Add a Comment</a>
-	</p>
 
 @stop

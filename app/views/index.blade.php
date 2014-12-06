@@ -5,7 +5,7 @@
 	@if (isset($events))
 		@foreach ($events as $event)
 			<p>
-			<a href="events/{{$event['id']}}">{{ $event['title'] }}</a><br>
+			<a href="events/view/{{$event['id']}}">{{ $event['title'] }}</a><br>
 			Where: {{ $event['location'] }} <br>
 			When: <?php $date = date_create($event['when']); ?>
 			{{ date_format($date, 'm/d/Y g:i A') }}<br>

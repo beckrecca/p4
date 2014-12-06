@@ -16,8 +16,6 @@ Route::get('/', function()
 	$todo = "
             <h1>REBECCA'S UGLY TO DO LIST</h1>
             <ul>
-            <li>Add comment form validation</li>
-            <li>Create general filter so only logged in user can access most pages</li>
             <li>Create edit user profile page</li>
             <li>Have main page only show upcoming events</li>
             <li>Adjust time zone (for comments)</li>
