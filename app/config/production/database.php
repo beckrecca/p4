@@ -7,7 +7,7 @@ return array(
         'mysql' => array(
             'driver'    => 'mysql',
             'host'      => 'localhost',
-            'database'  => 'cereals',
+            'database'  => 'dorisdays',
             'username'  => 'root',
             'password'  => 't12ZtlDaJc',
         ),
