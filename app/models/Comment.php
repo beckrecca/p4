@@ -14,7 +14,7 @@ class Comment extends Eloquent
     * A comment belongs to only one event
     * Define an inverse one-to-many relationship.
     */
-    public function event() {
+    public function holiday() {
         return $this->belongsTo('Holiday');
     }
 }

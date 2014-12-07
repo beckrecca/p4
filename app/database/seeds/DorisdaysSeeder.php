@@ -64,14 +64,14 @@ class DorisdaysSeeder extends Seeder {
 
 		# Associate must be called before we save (again)
 		$gravy->user()->associate($cat);
-		$gravy->event()->associate($thanksgiving);
+		$gravy->holiday()->associate($thanksgiving);
 		$gravy->save();
 
 		$eat->user()->associate($dog);
-		$eat->event()->associate($thanksgiving);
+		$eat->holiday()->associate($thanksgiving);
 		$eat->save();
 
-		$merry->user()->associate($hermitcrabs);
+		$merry->holiday()->associate($hermitcrabs);
 		$merry->save();
 	}
 
