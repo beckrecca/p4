@@ -23,7 +23,7 @@ class DorisdaysSeeder extends Seeder {
 		$cat->email = "blueandsilverstars@hotmail.com";
 		$cat->DOB = "1991-11-14";
 		$cat->password = "BFIbinn";
-		$dog->save();
+		$cat->save();
 
 		$hermitcrab = new User;
 		$hermitcrab->username = "StinkyHermitCrabs";
