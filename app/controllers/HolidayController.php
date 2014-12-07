@@ -20,7 +20,7 @@ class HolidayController extends BaseController
 
     public function all()
     {
-        // Show all the events. Stretch: pagination?
+        // Show all the events. 
         $events = Holiday::whenAscending()->get();
         $header = "All Events";
         return View::make('index')->with('events', $events)

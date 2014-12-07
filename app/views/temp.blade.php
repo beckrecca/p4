@@ -6,21 +6,8 @@
 
 @section('content')
 
-<h1>It's a work in progress, folks!</h1>
-
-<p>
-	Hello, everyone. My final project is supposed to (very basically) mimic the Event application of Facebook. I created it for my family to use, since half of them don't use Facebook for whatever reason.
-
-</p>
-
-@foreach($errors->all() as $message)
-    <div class='error'>{{ $message }}</div>
-@endforeach
-
-<h3>A running to do list...</h3>
-<li>Layout/CSS MAKE PRETTY etc</li>
-<li>Test test test</li>
-<li>Remove debug bar</li>
-<a href='/events'>Continue anyway</a>
+<div class="row">
+	<h1>It's a work in progress, folks!</h1>
+</div>
 
 @stop

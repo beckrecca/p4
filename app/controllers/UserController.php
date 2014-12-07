@@ -155,4 +155,13 @@ class UserController extends BaseController
         return Redirect::to('/profile')
                         ->with('flash_message', 'Your profile changes were saved.');
     }
+
+    public function logout()
+    {
+        # Log out
+        Auth::logout();
+
+        # Send them to the homepage
+        return Redirect::to('/');
+    }
 }

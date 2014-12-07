@@ -58,20 +58,12 @@ Route::get('/edit_profile', 'UserController@edit');
 
 Route::post('/edit_profile', 'UserController@handleEdit');
 
+Route::get('logout', 'UserController@logout');
+
 # MISCELLANOUS
 
 Route::get('whoops', function() {
     return View::make('whoops');
-});
-
-Route::get('/logout', function() {
-
-    # Log out
-    Auth::logout();
-
-    # Send them to the homepage
-    return Redirect::to('/');
-
 });
 
 Route::get('mysql-test', function() {
