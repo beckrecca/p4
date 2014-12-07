@@ -71,7 +71,7 @@ class DorisdaysSeeder extends Seeder {
 		$eat->holiday()->associate($thanksgiving);
 		$eat->save();
 
-		$merry->holiday()->associate($hermitcrabs);
+		$merry->holiday()->associate($hermitcrab);
 		$merry->save();
 	}
 
