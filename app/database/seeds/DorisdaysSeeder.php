@@ -12,7 +12,7 @@ class DorisdaysSeeder extends Seeder {
 
 		# Users
 		$dog = new User;
-		$dog->username = "TuckerTheBeagle";
+		$dog->username = "Tucker";
 		$dog->email = "doris@g.harvard.edu";
 		$dog->DOB = "1923-01-23";
 		$dog->password = Hash::make("arrooo");
@@ -26,7 +26,7 @@ class DorisdaysSeeder extends Seeder {
 		$cat->save();
 
 		$hermitcrab = new User;
-		$hermitcrab->username = "StinkyHermitCrabs";
+		$hermitcrab->username = "HermitCrabs";
 		$hermitcrab->email = "drunkenlimeade@yahoo.com";
 		$hermitcrab->DOB = "1996-05-14";
 		$hermitcrab->password = Hash::make("instantlydead");
@@ -71,7 +71,8 @@ class DorisdaysSeeder extends Seeder {
 		$eat->holiday()->associate($thanksgiving);
 		$eat->save();
 
-		$merry->holiday()->associate($hermitcrab);
+		$merry->user()->associate($hermitcrab);
+		$merry->holiday()->associate($christmas);
 		$merry->save();
 	}
 
