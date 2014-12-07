@@ -21,7 +21,8 @@
 <li>Adjust time zone (for comments)</li>
 <li>Layout/CSS MAKE PRETTY etc</li>
 <li>Create seeds</li>
-<li>Launch to production</li>
+<li>Test test test</li>
+<li>Remove debug bar</li>
 <a href='/events'>Continue anyway</a>
 
 @stop

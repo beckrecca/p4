@@ -8,6 +8,14 @@ class Holiday extends Eloquent
         return $this->hasMany('Comment');
     }
 
+    /**
+    * An event belongs to one user
+    * Define an inverse one-to-many relationship.
+    */
+    public function user() {
+        return $this->belongsTo('User');
+    }
+
     # Scope method for ordering the display of all the events
     public function scopeWhenAscending($query)
     {
