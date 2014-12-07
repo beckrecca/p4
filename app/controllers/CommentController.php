@@ -49,10 +49,12 @@ class CommentController extends BaseController
         // Handle comment form submission.
         $event = new Comment();
         $event->text = $_POST['text'];
-        $event->holiday_id = $_POST['holiday_id'];
+        $id = $_POST['holiday_id'];
+        $event->holiday_id = $id;
         $event->user_id = Auth::id();
         $event->save();
-        return Redirect::to('/events');
+        $redirect = "/events/view/" . $id;
+        return Redirect::to($redirect);
     }
     
 }

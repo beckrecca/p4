@@ -33,7 +33,9 @@ class HolidayController extends BaseController
             $event = Holiday::findOrFail($id);
         }
         catch(exception $e) {
-            return Redirect::to('/whoops');
+            $message = "We couldn't find any such event.";
+            return Redirect::to('/events')
+                ->with('flash_message', $message);
         }
 
         $comments = Comment::where('holiday_id', '=', $id)->get();
@@ -149,7 +151,8 @@ class HolidayController extends BaseController
         $event->description = $_POST['description'];
         $event->user_id = Auth::id();
         $event->save();
-        return Redirect::action('HolidayController@index');
+        $redirect = "/events/view/" . $event->id;
+        return Redirect::to($redirect);
     }
 
     public function delete($id)
