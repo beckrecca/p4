@@ -2,16 +2,15 @@
 
 class Holiday extends Eloquent
 {
+    # An event has many comments
+    # Define a one-to-many relationship.
 	public function comment() {
-        # An event has many comments
-        # Define a one-to-many relationship.
+        
         return $this->hasMany('Comment');
     }
-
-    /**
-    * An event belongs to one user
-    * Define an inverse one-to-many relationship.
-    */
+    
+    # An event belongs to one user
+    # Define an inverse one-to-many relationship.
     public function user() {
         return $this->belongsTo('User');
     }
@@ -52,5 +51,14 @@ class Holiday extends Eloquent
         $t = date('Y-m-d', $t);
         $events = Holiday::where('when', '>', $t);
         return $events;
+    }
+
+    # We have to delete all the comments for an event before we can delete it too.
+    public function delete() {
+        $comments = Comment::where('holiday_id', '=', $this->id)->get();
+        foreach ($comments as $comment) {
+            $comment->delete();
+        }
+        return parent::delete();
     }
 }
