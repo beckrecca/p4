@@ -15,21 +15,21 @@ class DorisdaysSeeder extends Seeder {
 		$dog->username = "TuckerTheBeagle";
 		$dog->email = "doris@g.harvard.edu";
 		$dog->DOB = "1923-01-23";
-		$dog->password = "arrooo";
+		$dog->password = Hash::make("arrooo");
 		$dog->save();
 
 		$cat = new User;
 		$cat->username = "Marbles";
 		$cat->email = "blueandsilverstars@hotmail.com";
 		$cat->DOB = "1991-11-14";
-		$cat->password = "BFIbinn";
+		$cat->password = Hash::make("BFIbinn");
 		$cat->save();
 
 		$hermitcrab = new User;
 		$hermitcrab->username = "StinkyHermitCrabs";
 		$hermitcrab->email = "drunkenlimeade@yahoo.com";
 		$hermitcrab->DOB = "1996-05-14";
-		$hermitcrab->password = "instantlydead";
+		$hermitcrab->password = Hash::make("instantlydead");
 		$hermitcrab->save();
 
 		# Events
