@@ -5,7 +5,7 @@
 @stop
 
 @section('content')
-	<h2>Add a new event</h2
+	<h2>Add a new event</h2>
 
 	@foreach($errors->all() as $message)
     <div class='error'>{{ $message }}</div>
