@@ -16,6 +16,10 @@
 
 	 <h2>Comment on this event</h2>
 
+	 @foreach($errors->all() as $message)
+    <div class='error'>{{ $message }}</div>
+	@endforeach
+
 	{{ Form::open(array('url' => '/comments')) }}
 
 		{{ Form::label('text')}} (Limit 160 characters) <br>

@@ -7,6 +7,10 @@
 @section('content')
 	<h2>Edit an event</h2>
 
+	@foreach($errors->all() as $message)
+    <div class='error'>{{ $message }}</div>
+	@endforeach
+
 	{{ Form::open(array('url' => '/events/edit')) }}
 
 		{{ Form::hidden('id',$event['id']); }}

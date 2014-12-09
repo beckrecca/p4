@@ -71,7 +71,7 @@ class HolidayController extends BaseController
 
         # Step 3
         if($validator->fails()) {
-            return Redirect::to('/events')
+            return Redirect::to('/events/create')
                 ->with('flash_message', 'You really messed up!')
                 ->withInput()
                 ->withErrors($validator);
@@ -133,7 +133,8 @@ class HolidayController extends BaseController
 
         # Step 3
         if($validator->fails()) {
-            return Redirect::to('/events')
+            $redirect = "/events/edit/" . $event->id;
+            return Redirect::to($redirect)
                 ->with('flash_message', 'You really messed up! Your changes were not saved.')
                 ->withInput()
                 ->withErrors($validator);

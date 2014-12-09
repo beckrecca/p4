@@ -40,7 +40,8 @@ class CommentController extends BaseController
 
         # Step 3
         if($validator->fails()) {
-            return Redirect::to('/events')
+            $redirect = "/comments/" . $_POST['holiday_id'];
+            return Redirect::to($redirect)
                 ->with('flash_message', 'You messed up and your comment was not saved.')
                 ->withInput()
                 ->withErrors($validator);
