@@ -11,7 +11,7 @@
     <div class='error'>{{ $message }}</div>
 	@endforeach
 
-	{{ Form::open(array('url' => '/events/create')) }}
+	{{ Form::open(array('url' => '/events/create', 'id' => 'validateForm')) }}
 
 		{{ Form::label('title')}}
 		{{ Form::text('title') }}
@@ -20,7 +20,7 @@
 		{{ Form::text('location') }}
 		<br>
 		{{ Form::label('date')}}
-		<input type="text" id="datepicker" size="30" name="date">
+		<input type="text" id="validDefaultDatepicker" size="30" name="date">
 		<br>
 
 		{{Form::label('time')}}
@@ -39,7 +39,7 @@
 @section('/body')
 <script>
   $(function() {
-    $("#datepicker").datepicker({dateFormat: 'yy-mm-dd'});
+    $("#validDefaultDatepicker").datepicker({dateFormat: 'yy-mm-dd'});
   });
 </script>
 
