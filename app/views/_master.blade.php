@@ -17,7 +17,7 @@
 <div class="container">
 
      <div class="navigation">
-        <ul>
+        <ul class="nav nav-pills">
             <li><a href="/events">Home</a></li>
             <li><a href="/events/all">View all events</a></li>
             <li><a href="/events/create">Create an event</a></li>
