@@ -27,7 +27,7 @@ class UserController extends BaseController
         # Step 1) Define the rules
         $rules = array(
             'email' => 'required|email|unique:users,email',
-            'username' => 'required|unique:users,username',
+            'username' => 'required|unique:users,username|max:12',
             'password' => 'required|min:7',
             'password_confirm' => 'required|same:password',
             'month' => 'between:1,12|numeric',
@@ -125,8 +125,8 @@ class UserController extends BaseController
         // Handle edit profile form submission.
         # Step 1) Define the rules
         $rules = array(
-            'email' => 'required|email|unique:users,email',
-            'username' => 'required|unique:users,username',
+            'email' => 'required|email',
+            'username' => 'required|max:12',
             'new_password' => 'min:7|same:new_password_confirmation',
             'month' => 'between:1,12|numeric',
             'day' => 'between:1,31|numeric',
