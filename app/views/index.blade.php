@@ -20,8 +20,7 @@
 							</div>
 							<div class="x">
 								<a href="/events/edit/{{$event['id']}}">Edit</a> |
-								<a href="/events/delete/{{$event['id']}}">Delete</a> |
-								<a href="/events/view/{{$event['id']}}">View</a>
+								<a href="/events/delete/{{$event['id']}}">Delete</a> 
 							</div>
 						</div>
 						<div class="panel-body">
