@@ -13,7 +13,7 @@
 
 Route::get('/', function() 
 {
-	return View::make('temp');
+	return View::make('welcome');
 });
 
 # EVENTS
