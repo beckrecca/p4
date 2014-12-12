@@ -17,6 +17,8 @@
 			<a href="/events/view/{{$event['id']}}">View</a>
 		</p>
 		@endforeach
+
+		{{ $events->links() }}
 	@else
 		<p>Something went terribly wrong.</p>
 	@endif

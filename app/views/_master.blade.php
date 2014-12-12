@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>@yield('title', 'A work in progress')</title>
+    <title>@yield('title', 'Dorisdays')</title>
     <!-- makes the layout responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
@@ -16,30 +16,34 @@
 <body>
 <div class="container">
 
-     <div class="navigation">
-        <ul class="nav nav-pills">
-            <li><a href="/events">Home</a></li>
-            <li><a href="/events/all">View all events</a></li>
-            <li><a href="/events/create">Create an event</a></li>
-            <li>
+     <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li><a href="/events" class="active">Home</a></li>
+                <li><a href="/events/all">View all events</a></li>
+                <li><a href="/events/create">Create an event</a></li>
                 @if(Auth::check())
-                <a href="/edit_profile">Edit profile</a>
-            </li>
-            <li>
-                <a href='/logout'>Log out {{ Auth::user()->username; }}</a>
-            </li>
+                    <li><a href="/edit_profile">Edit profile</a></li>
+                    <li><a href='/logout'>Log out {{ Auth::user()->username; }}</a></li>
                 @else 
-                <a href='/signup'>Sign up</a> or <a href='/login'>Log in</a>
+                    <li><a href='/signup'>Sign up</a></li>
+                    <li><a href='/login'>Log in</a></li>
                 @endif
-            </li>
-        </ul>
+            </ul>
+        </nav>
+        <h3 class="text-muted">Dorisdays</h3>
      </div>
 
+
      @if(Session::get('flash_message'))
-        <div class="flash-message">{{ Session::get('flash_message') }}</div>
+        <div class="row">
+            <div class="flash-message">{{ Session::get('flash_message') }}</div>
+        </div>
      @endif
 
+    <div class="row">
     @yield('content')
+    </div>
 </div>
 
 @yield('/body')
