@@ -66,7 +66,7 @@ class HolidayController extends BaseController
             'title' => 'required|max:128',
             'description' => 'max:160',
             'location' => 'required',
-            'date' => 'required|date|date_format:"yyyy-mm-dd"',
+            'date' => 'required|date|date_format:"Y-m-d"',
             'time' => 'between:1,12|numeric',
             'm' => 'between:0,1|numeric',
 
@@ -128,7 +128,7 @@ class HolidayController extends BaseController
             'title' => 'required|max:128',
             'description' => 'max:160',
             'location' => 'required',
-            'date' => 'required|date|date_format:"yyyy-mm-dd"',
+            'date' => 'required|date|date_format:"Y-m-d"',
             'time' => 'between:1,12|numeric',
             'm' => 'between:0,1|numeric',
 
