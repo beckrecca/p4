@@ -12,7 +12,7 @@ class HolidayController extends BaseController
     public function index()
     {
         // Show all the upcoming events.
-        $events = Holiday::upcoming()->whenAscending()->simplePaginate(5);
+        $events = Holiday::upcoming()->whenAscending()->Paginate(5);
         $header = "Upcoming Events";
         $title = "";
         return View::make('index')->with('events', $events)
@@ -23,7 +23,7 @@ class HolidayController extends BaseController
     public function all()
     {
         // Show all the events. 
-        $events = Holiday::whenAscending()->simplePaginate(5);
+        $events = Holiday::whenAscending()->Paginate(5);
         $header = $title = "All Events";
         return View::make('index')->with('events', $events)
                                   ->with('header', $header)
@@ -156,7 +156,6 @@ class HolidayController extends BaseController
         $time = $time . ":00:00";
         $event->when = $_POST['date'] . " " . $time;
         $event->description = $_POST['description'];
-        $event->user_id = Auth::id();
         $event->save();
         $redirect = "/events/view/" . $event->id;
         return Redirect::to($redirect);
