@@ -1,0 +1,27 @@
+.header {
+    border-bottom: 1px #ccc dotted;
+}
+.content {
+    padding: 0em 2em 0em 2em;
+    margin: 1em 0em 1em 0em;
+}
+.project-name {
+    margin-bottom: 0;
+    color: #aaa;
+}
+small {
+    margin-top: 0;
+}
+.event {
+    margin: 0.5em 0em 0.5em 0em;
+}
+.title {
+    float:left;
+}
+.x {
+    font-size: 0.8em;
+    float:right;
+}
+.panel-heading {
+    padding-bottom: 1.75em;
+}

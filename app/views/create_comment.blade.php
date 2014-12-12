@@ -6,45 +6,67 @@
 
 @section('content')
 
-	<h4>{{ $event['title'] }}</h4><br>
-	Created by: {{ $username }} <br>
-	Where: {{ $event['location'] }} <br>
-	When: <?php $date = date_create($event['when']); ?>
-			{{ date_format($date, 'm/d/Y g:i A') }}<br>
-	What: {{ $event['description'] }}<br>
-	<a href="/events/edit/{{$event['id']}}">Edit</a> |
-	<a href="/events/delete/{{$event['id']}}">Delete</a>
+	<div class="col-sm-6">
+		<div class="event">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="title">
+						<a href="/events/view/{{$event['id']}}">{{ $event['title'] }}</a><br>
+					</div>
+					<div class="x">
+						<a href="/events/edit/{{$event['id']}}">Edit</a> |
+						<a href="/events/delete/{{$event['id']}}">Delete</a> 
+					</div>
+				</div>
+				<div class="panel-body">
+					Created by: {{ $username }} <br>
+					Where: {{ $event['location'] }} <br>
+					When: <?php $date = date_create($event['when']); ?>
+					{{ date_format($date, 'l m/d/Y g:i A') }}<br>
+					What: {{ $event['description'] }}<br>
+				</div>
+			</div>
+		</div>
+	</div>
 
-	 <h4>Comment on this event</h4>
+	<div class="col-sm-6">
 
-	 @foreach($errors->all() as $message)
-    <div class='error'>{{ $message }}</div>
-	@endforeach
+		 <h4>Comment on this event</h4>
 
-	{{ Form::open(array('url' => '/comments')) }}
+		 @foreach($errors->all() as $message)
+	    <div class='error'>{{ $message }}</div>
+		@endforeach
 
-		{{ Form::label('text' )}} (Limit 160 characters) <br>
-		{{ Form::textarea('text', null, ['size' => '30x4']) }}
+		{{ Form::open(array('url' => '/comments')) }}
 
-		<input type="hidden" name="holiday_id" value="{{ $event['id'] }}" />
+			{{ Form::label('text' )}} (Limit 160 characters) <br>
+			{{ Form::textarea('text', null, ['size' => '30x4']) }}
 
-		<br>
-		{{ Form::submit() }}
+			<input type="hidden" name="holiday_id" value="{{ $event['id'] }}" />
 
-	{{ Form::close() }}
-
-	<h4>Comments</h4>
-
-	@foreach ($comments as $comment)
-		<p>
-			{{ $comment['text'] }}
 			<br>
-			by {{ $users[$comment['id']] }} 
-			at <?php $comment_timestamp = date_create($comment['created_at']); ?>
-			{{ date_format($comment_timestamp, 'm/d/Y g:i A') }}
-		</p>
-	@endforeach
+			{{ Form::submit() }}
 
-	
+		{{ Form::close() }}
+
+		<h4>Comments</h4>
+
+		@foreach ($comments as $comment)
+			<div class="row">
+				<div class="comment">
+					<div class="panel panel-default">
+						<div class="panel-body">
+						{{ $comment['text'] }}
+						</div>
+						<div class="panel-footer">
+							by {{ $users[$comment['id']] }} 
+							at <?php $comment_timestamp = date_create($comment['created_at']); ?>
+							{{ date_format($comment_timestamp, 'm/d/Y g:i A') }}
+						</div>
+					</div>
+				</div>
+			</div>
+		@endforeach
+	</div>
 
 @stop

@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <!-- jQuery datepicker -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="/css/custom.css">
+
+    <!-- Javascript -->
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 </head>
@@ -31,7 +35,7 @@
                 @endif
             </ul>
         </nav>
-        <h3 class="text-muted project-name">Dorisdays</h3>
+        <h3 class="project-name">Dorisdays</h3>
         <small>Let's all be on the same page.</small>
      </div>
 
@@ -42,8 +46,10 @@
         </div>
      @endif
 
-    <div class="row">
-    @yield('content')
+     <div class="content">
+        <div class="row">
+            @yield('content')
+        </div>
     </div>
 </div>
 
