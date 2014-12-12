@@ -1,7 +1,7 @@
 @extends('_master')
 
 @section('title')
-	Edit an event
+	| Edit an event
 @stop
 
 @section('content')

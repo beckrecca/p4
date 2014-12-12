@@ -1,7 +1,7 @@
 @extends('_master')
 
 @section('title')
-	{{ $event['title'] }}
+	| {{ $event['title'] }}
 @stop
 
 @section('content')

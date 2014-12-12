@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Dorisdays: @yield('title')</title>
+    <title>Dorisdays @yield('title')</title>
     <!-- makes the layout responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->

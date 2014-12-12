@@ -1,7 +1,7 @@
 @extends('_master')
 
 @section('title')
-	Edit Profile
+	| Edit Profile
 @stop
 
 @section('content')

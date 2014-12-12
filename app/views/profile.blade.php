@@ -1,7 +1,7 @@
 @extends('_master')
 
 @section('title')
-	Profile
+	| Profile
 @stop
 
 @section('content')

@@ -14,17 +14,20 @@ class HolidayController extends BaseController
         // Show all the upcoming events.
         $events = Holiday::upcoming()->whenAscending()->simplePaginate(5);
         $header = "Upcoming Events";
+        $title = "";
         return View::make('index')->with('events', $events)
-                                  ->with('header', $header);
+                                  ->with('header', $header)
+                                  ->with('title', $title);
     }
 
     public function all()
     {
         // Show all the events. 
         $events = Holiday::whenAscending()->simplePaginate(5);
-        $header = "All Events";
+        $header = $title = "All Events";
         return View::make('index')->with('events', $events)
-                                  ->with('header', $header);
+                                  ->with('header', $header)
+                                  ->with('title', $title);
     }
 
     public function view($id) 

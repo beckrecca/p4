@@ -1,5 +1,9 @@
 @extends('_master')
 
+@section('title')
+	{{ $title }}
+@stop
+
 @section('content')
 
 	<h4> {{ $header }} </h4>

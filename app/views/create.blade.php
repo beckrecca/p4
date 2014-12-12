@@ -1,7 +1,7 @@
 @extends('_master')
 
 @section('title')
-	Add a new event
+	| Add a new event
 @stop
 
 @section('content')
