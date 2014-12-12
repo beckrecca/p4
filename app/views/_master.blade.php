@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>@yield('title', 'Dorisdays')</title>
+    <title>Dorisdays: @yield('title')</title>
     <!-- makes the layout responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
@@ -31,7 +31,8 @@
                 @endif
             </ul>
         </nav>
-        <h3 class="text-muted">Dorisdays</h3>
+        <h3 class="text-muted project-name">Dorisdays</h3>
+        <small>Let's all be on the same page.</small>
      </div>
 
 

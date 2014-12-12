@@ -6,7 +6,7 @@
 
 @section('content')
 
-	{{ $event['title'] }}<br>
+	<h4>{{ $event['title'] }}</h4><br>
 	Where: {{ $event['location'] }} <br>
 	When: <?php $date = date_create($event['when']); ?>
 			{{ date_format($date, 'm/d/Y g:i A') }}<br>
@@ -14,7 +14,7 @@
 	<a href="/eventsedit/{{$event['id']}}">Edit</a> |
 	<a href="/eventsdelete/{{$event['id']}}">Delete</a>
 
-	 <h2>Comment on this event</h2>
+	 <h4>Comment on this event</h4>
 
 	 @foreach($errors->all() as $message)
     <div class='error'>{{ $message }}</div>
@@ -22,8 +22,8 @@
 
 	{{ Form::open(array('url' => '/comments')) }}
 
-		{{ Form::label('text')}} (Limit 160 characters) <br>
-		{{ Form::textarea('text') }}
+		{{ Form::label('text' )}} (Limit 160 characters) <br>
+		{{ Form::textarea('text', null, ['size' => '30x4']) }}
 
 		<input type="hidden" name="holiday_id" value="{{ $event['id'] }}" />
 
@@ -32,7 +32,7 @@
 
 	{{ Form::close() }}
 
-	<h2>Comments</h2>
+	<h4>Comments</h4>
 
 	@foreach ($comments as $comment)
 		<p>

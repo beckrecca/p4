@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<h1> {{ $header }} </h2>
+	<h4> {{ $header }} </h4>
 
 	@if (isset($events))
 		@foreach ($events as $event)

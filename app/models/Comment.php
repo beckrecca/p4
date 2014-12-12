@@ -17,4 +17,10 @@ class Comment extends Eloquent
     public function holiday() {
         return $this->belongsTo('Holiday');
     }
+
+    # Scope method for ordering the display of comments 
+    public function scopeCreatedAtDescending($query)
+    {
+        return $query->orderBy('created_at','DESC');
+    } 
 }

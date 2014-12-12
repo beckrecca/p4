@@ -5,7 +5,7 @@
 @stop
 
 @section('content')
-	<h2>User Profile</h2>
+	<h4>User Profile</h4>
 	<a href="/edit_profile">Edit</a>
 
 	<br><br>

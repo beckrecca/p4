@@ -52,6 +52,18 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $usernames;
 	}
 
+	# Let's create a slightly different method to return a username given the id.
+	public static function username($id) {
+		try {
+			$user = User::findOrFail($id);
+		}
+		catch (exception $e) {
+			return Redirect::to('/whoops');
+		}
+		$username = $user->username;
+		return $username;
+	}
+
 	# Let's create a method to break down the DOB.
 	public static function DOB($id) {
 		try {

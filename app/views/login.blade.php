@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="row">
-<h1>Log in</h1>
+<h4>Log in</h4>
 
 {{ Form::open(array('url' => '/login')) }}
 

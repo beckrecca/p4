@@ -38,6 +38,8 @@ Route::post('/events/delete', 'HolidayController@handleDelete');
 
 # COMMENTS
 
+Route::get('/comments', 'CommentController@comment_index');
+
 Route::get('/comments/{id}', 'CommentController@create');
 
 Route::post('/comments', 'CommentController@handleCreate');

@@ -6,7 +6,8 @@
 
 @section('content')
 
-	{{ $event['title'] }}<br>
+	<h4>{{ $event['title'] }}</h4><br>
+	Created by: {{ $username }} <br>
 	Where: {{ $event['location'] }} <br>
 	When: <?php $date = date_create($event['when']); ?>
 			{{ date_format($date, 'm/d/Y g:i A') }}<br>
@@ -14,7 +15,7 @@
 	<a href="/events/edit/{{$event['id']}}">Edit</a> |
 	<a href="/events/delete/{{$event['id']}}">Delete</a>
 
-	<h2>Comments</h2> 
+	<h4>Comments</h4> 
 
 	<p>
 		<a href="/comments/{{$event['id']}}">Add a Comment</a>

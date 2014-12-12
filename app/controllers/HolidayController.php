@@ -37,14 +37,17 @@ class HolidayController extends BaseController
             return Redirect::to('/events')
                 ->with('flash_message', $message);
         }
-
-        $comments = Comment::where('holiday_id', '=', $id)->get();
-
+        // We want to show the comments
+        $comments = Comment::where('holiday_id', '=', $id)->CreatedAtDescending()->get();
+        // We also want to show who wrote them
         $users = User::find_usernames($comments);
+        // Finally, we want to show who created the event
+        $username = User::username($event->user_id);
 
         return View::make('event_page')->with('event', $event)
                                        ->with('comments', $comments)
-                                       ->with('users', $users);
+                                       ->with('users', $users)
+                                       ->with('username', $username);
     }
 
     public function create()

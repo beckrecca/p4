@@ -5,7 +5,7 @@
 @stop
 
 @section('content')
-	<h2>Edit an event</h2>
+	<h4>Edit an event</h4>
 
 	@foreach($errors->all() as $message)
     <div class='error'>{{ $message }}</div>
@@ -29,8 +29,8 @@
 		{{Form::selectRange('hour', 1, 12, $when['time']) }}
 		{{Form::select('m', array(0 => "AM", 1 => "PM"), $when['timeofday'])}}
         <br>
-		{{ Form::label('description')}}
-		{{ Form::text('description', $event['description'])}}
+		{{ Form::label('description')}} <br>
+		{{ Form::textarea('description', null, ['size' => '30x4']) }}
 		<br>
 		{{ Form::submit() }}
 		<a href="/events" class="btn btn-default btn-sm">Cancel</a>
