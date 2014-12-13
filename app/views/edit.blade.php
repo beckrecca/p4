@@ -30,7 +30,7 @@
 		{{Form::select('m', array(0 => "AM", 1 => "PM"), $when['timeofday'])}}
         <br>
 		{{ Form::label('description')}} <br>
-		{{ Form::textarea('description', null, ['size' => '30x4']) }}
+		{{ Form::textarea('description', $event['description', ['size' => '30x4']) }}
 		<br>
 		{{ Form::submit() }}
 		<a href="/events" class="btn btn-default btn-sm">Cancel</a>
