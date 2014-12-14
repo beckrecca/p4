@@ -23,7 +23,7 @@ class DorisdaysSeeder extends Seeder {
 		$example->title = "Example event";
 		$example->location = "109 Beacon St, Somerville MA";
 		$example->when = "2014-12-18 18:00:00";
-		$thanksgiving->description = "Don't show up to this unless you want to be disappointed.";
+		$example->description = "Don't show up to this unless you want to be disappointed.";
 
 		# Associate has to be called *before* the event is created (save())
 		$example->user()->associate($me); 
