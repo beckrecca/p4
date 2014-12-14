@@ -34,6 +34,7 @@ class Holiday extends Eloquent
 
         $date = $datetime->format('Y-m-d');
         $time = $datetime->format('g');
+        $minute = $datetime->format('i');
         $timeofday = $datetime->format('H');
         if ($timeofday >= 12) $timeofday = 1;
         else $timeofday = 0;
@@ -41,6 +42,7 @@ class Holiday extends Eloquent
         $when = Array();
         $when['date'] = $date;
         $when['time'] = $time;
+        $when['minute'] = $minute;
         $when['timeofday'] = $timeofday;
         return $when;
     }

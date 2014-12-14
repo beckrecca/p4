@@ -27,6 +27,10 @@
 
 		{{Form::label('time')}}
 		{{Form::selectRange('hour', 1, 12, $when['time']) }}
+		{{Form::select('minute', array(
+			0 => '00', 15 => '15', 30 => '30', 45 => '45'
+			), $when['minute']
+		)}}
 		{{Form::select('m', array(0 => "AM", 1 => "PM"), $when['timeofday'])}}
         <br>
 		{{ Form::label('description')}} <br>

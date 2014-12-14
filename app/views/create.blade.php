@@ -24,6 +24,10 @@
 
 		{{Form::label('time')}}
 		{{Form::selectRange('hour', 1, 12)}}
+		{{Form::select('minute', array(
+			0 => '00', 15 => '15', 30 => '30', 45 => '45'
+			)
+		)}}
 		{{Form::select('m', array(0 => "AM", 1 => "PM"), 0)}}
         <br>
 		{{ Form::label('description')}} <br>

@@ -76,7 +76,8 @@ class HolidayController extends BaseController
             'description' => 'max:160',
             'location' => 'required',
             'date' => 'required|date|date_format:"Y-m-d"',
-            'time' => 'between:1,12|numeric',
+            'hour' => 'between:1,12|numeric',
+            'minute' => 'between:0,59|numeric',
             'm' => 'between:0,1|numeric',
 
         );
@@ -101,7 +102,7 @@ class HolidayController extends BaseController
         if ($partofday) {
             $time += 12;
         }
-        $time = $time . ":00:00";
+        $time = $time . ":" . $_POST['minute'] . ":00";
         $event->when = $_POST['date'] . " " . $time;
         $event->description = $_POST['description'];
         $event->user_id = Auth::id();
@@ -139,7 +140,8 @@ class HolidayController extends BaseController
             'description' => 'max:160',
             'location' => 'required',
             'date' => 'required|date|date_format:"Y-m-d"',
-            'time' => 'between:1,12|numeric',
+            'hour' => 'between:1,12|numeric',
+            'minute' => 'between:0,59|numeric',
             'm' => 'between:0,1|numeric',
 
         );
@@ -163,7 +165,7 @@ class HolidayController extends BaseController
         if ($partofday) {
             $time += 12;
         }
-        $time = $time . ":00:00";
+        $time = $time . ":" . $_POST['minute'] . ":00";
         $event->when = $_POST['date'] . " " . $time;
         $event->description = $_POST['description'];
         $event->save();
