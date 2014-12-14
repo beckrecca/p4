@@ -43,9 +43,11 @@
 				<div class="col-sm-6 col-sm-offset-1">
 					@if (isset($upcoming_birthdays))
 					<h4>Celebrate!</h4>
+						<ul class="upcoming">
 						@foreach ($upcoming_birthdays as $birthday)
-							{{ $birthday }} <br> <br>
+							<li>{{ $birthday }} </li>
 						@endforeach
+						</ul>
 					@endif
 				</div>
 			</div>

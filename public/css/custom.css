@@ -47,5 +47,10 @@ select {
 }
 .today {
     font-weight: bold;
-    font-size: 1.05em;
+}
+.bday {
+    color: #8FACC5;
+}
+.upcoming {
+    list-style-type: none;
 }

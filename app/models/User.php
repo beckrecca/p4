@@ -114,14 +114,14 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         		}
         		// if the user's bday is after today
         		if ($DOB['day'] > $day) {
-        			$user_bdays[$user->username] = $user->username . "'s birthday is on the " . $DOB['day'] . " of this month.";
+        			$user_bdays[$user->username] = $user->username . "'s birthday is on the <span class='bday'>" . $DOB['day'] . "</span> of this month.";
         		}
         	}
         	// if the user's bday is next month
         	if ($DOB['month'] == $next_month) {
         		// get the name of the month
         		$bday_month = date('F', mktime(0, 0, 0, $DOB['month'], 1, $year));
-        		$user_bdays[$user->username] = $user->username . "'s birthday will be on " . $bday_month . " " . $DOB['day'] . ".";
+        		$user_bdays[$user->username] = $user->username . "'s birthday will be on <span class='bday'>" . $bday_month . " " . $DOB['day'] . "</span>.";
         	}
         }
 
