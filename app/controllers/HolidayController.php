@@ -14,9 +14,11 @@ class HolidayController extends BaseController
         // Show all the upcoming events.
         $events = Holiday::upcoming()->whenAscending()->Paginate(5);
         $header = $title = "Upcoming Events";
+        $user = Auth::id();
         return View::make('index')->with('events', $events)
                                   ->with('header', $header)
-                                  ->with('title', $title);
+                                  ->with('title', $title)
+                                  ->with('user', $user);
     }
 
     public function all()
@@ -24,9 +26,11 @@ class HolidayController extends BaseController
         // Show all the events. 
         $events = Holiday::whenAscending()->Paginate(5);
         $header = $title = " All Events";
+        $user = Auth::id();
         return View::make('index')->with('events', $events)
                                   ->with('header', $header)
-                                  ->with('title', $title);
+                                  ->with('title', $title)
+                                  ->with('user', $user);
     }
 
     public function view($id) 
@@ -46,10 +50,12 @@ class HolidayController extends BaseController
         // Finally, we want to show who created the event
         $username = User::username($event->user_id);
 
+        $user = Auth::id();
         return View::make('event_page')->with('event', $event)
                                        ->with('comments', $comments)
                                        ->with('users', $users)
-                                       ->with('username', $username);
+                                       ->with('username', $username)
+                                       ->with('user', $user);
     }
 
     public function create()

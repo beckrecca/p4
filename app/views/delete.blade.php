@@ -13,7 +13,7 @@
 
 	{{ Form::submit('Yes', array('class' => 'btn btn-success')); }}
 
-	<a href="/events" class="btn btn-primary">NO, take me back!</a>
+	<a href="/events/view/{{$event['id']}}" class="btn btn-danger">NO, take me back!</a>
 
 	{{ Form::close() }}
 

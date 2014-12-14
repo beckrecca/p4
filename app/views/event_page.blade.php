@@ -12,17 +12,19 @@
 					<div class="title">
 						<a href="/events/view/{{$event['id']}}">{{ $event['title'] }}</a><br>
 					</div>
-					<div class="x">
-						<a href="/events/edit/{{$event['id']}}">Edit</a> |
-						<a href="/events/delete/{{$event['id']}}">Delete</a> 
-					</div>
+					@if ($user == $event['user_id'])
+						<div class="x">
+							<a href="/events/edit/{{$event['id']}}">Edit</a> |
+							<a href="/events/delete/{{$event['id']}}">Delete</a> 
+						</div>
+					@endif
 				</div>
 				<div class="panel-body">
-					Created by: {{ $username }} <br>
-					Where: {{ $event['location'] }} <br>
-					When: <?php $date = date_create($event['when']); ?>
+					<label>Created by:</label> {{ $username }} <br>
+					<label>Where:</label> {{ $event['location'] }} <br>
+					<label>When:</label> <?php $date = date_create($event['when']); ?>
 					{{ date_format($date, 'l m/d/Y g:i A') }}<br>
-					What: {{ $event['description'] }}<br>
+					<label>What:</label> {{ $event['description'] }}<br>
 				</div>
 			</div>
 		</div>

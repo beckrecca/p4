@@ -42,3 +42,6 @@ form, input {
 select {
     margin: 0.25em;
 }
+.comment-link {
+    float:right;
+}
