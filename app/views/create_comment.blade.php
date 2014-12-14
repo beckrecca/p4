@@ -47,7 +47,7 @@
 			<input type="hidden" name="holiday_id" value="{{ $event['id'] }}" />
 
 			<br>
-			{{ Form::submit() }}
+			{{ Form::submit('Submit', array('class' => 'btn btn-default')); }}
 
 		{{ Form::close() }}
 

@@ -16,7 +16,7 @@ a:hover, a:focus {
 #active {
     color: #000;
 }
-.content {#BBDAC3
+.content {
     padding: 0em 2em 0em 2em;
     margin: 1em 0em 1em 0em;
 }
@@ -28,7 +28,8 @@ small {
     margin-top: 0;
 }
 .jumbotron {
-    background-color: #BBDEDC;
+    background-color: #E7E7E7;
+    text-align: center;
 }
 .event {
     margin: 0.5em 0em 0.5em 0em;
@@ -79,7 +80,7 @@ select {
 .bday {
     border-bottom: 1px #BBDAC3 dotted;
 }
-.upcoming {
+.upcoming{
     list-style-type: none;
 }
 .occasion {
@@ -89,4 +90,12 @@ select {
 .holiday {
     font-weight: bold;
     color: #FF9B95;
+}
+.btn-default {
+    background-color: #FF9B95;
+    border: 1px #E7E7E7 solid;
+}
+.btn-default:hover, .btn-default:active, .btn-default:focus {
+    background-color: #BBDAC3;
+    border: 1px #E7E7E7 solid;
 }

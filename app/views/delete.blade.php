@@ -11,9 +11,9 @@
 
 		{{ Form::hidden('id',$event['id']); }}
 
-	{{ Form::submit('Yes', array('class' => 'btn btn-success')); }}
+	{{ Form::submit('Yes', array('class' => 'btn btn-default')); }}
 
-	<a href="/events/view/{{$event['id']}}" class="btn btn-danger">NO, take me back!</a>
+	<a href="/events/view/{{$event['id']}}">NO, take me back!</a>
 
 	{{ Form::close() }}
 

@@ -11,69 +11,32 @@ class DorisdaysSeeder extends Seeder {
 		DB::statement('TRUNCATE comments');
 
 		# Users
-		$dog = new User;
-		$dog->username = "Tucker";
-		$dog->email = "doris@g.harvard.edu";
-		$dog->DOB = "1923-01-23";
-		$dog->password = Hash::make("arrooo");
-		$dog->save();
-
-		$cat = new User;
-		$cat->username = "Marbles";
-		$cat->email = "blueandsilverstars@hotmail.com";
-		$cat->DOB = "1991-11-14";
-		$cat->password = Hash::make("BFIbinn");
-		$cat->save();
-
-		$hermitcrab = new User;
-		$hermitcrab->username = "HermitCrabs";
-		$hermitcrab->email = "drunkenlimeade@yahoo.com";
-		$hermitcrab->DOB = "1996-05-14";
-		$hermitcrab->password = Hash::make("instantlydead");
-		$hermitcrab->save();
+		$me = new User;
+		$me->username = "Becky";
+		$me->email = "rebecca.doris42@gmail.com";
+		$me->DOB = "1988-01-29";
+		$me->password = Hash::make("password1234");
+		$me->save();
 
 		# Events
-		$thanksgiving = new Holiday;
-		$thanksgiving->title = "Thanksgiving";
-		$thanksgiving->location = "my house";
-		$thanksgiving->when = "2014-11-27 17:00:00";
-		$thanksgiving->description = "I'm gonna be chugging so much gravy.";
+		$example = new Holiday;
+		$example->title = "Example event";
+		$example->location = "109 Beacon St, Somerville MA";
+		$example->when = "2014-12-18 18:00:00";
+		$thanksgiving->description = "Don't show up to this unless you want to be disappointed.";
 
 		# Associate has to be called *before* the event is created (save())
-		$thanksgiving->user()->associate($dog); 
-		$thanksgiving->save();
-
-		$christmas = new Holiday;
-		$christmas->title = "Christmas";
-		$christmas->location = "123 Fake Lane, Dampland, MA";
-		$christmas->when = "2014-12-25 08:00:00";
-		$christmas->description = "Presents at 9, dinner at 2. Ham!";
-
-		$christmas->user()->associate($cat);
-		$christmas->save();
+		$example->user()->associate($me); 
+		$example->save();
 
 		# Comments
 		$gravy = new Comment;
-		$gravy->text = "I love gravy!";
-
-		$eat = new Comment;
-		$eat->text = "I'm gonna eat the entire turkey carcass out of the garbage tonight.";
-		
-		$merry = new Comment();
-		$merry->text = "We want a new tank for Christmas!";
+		$gravy->text = "I love gravy! Leave comments over here.";
 
 		# Associate must be called before we save (again)
-		$gravy->user()->associate($cat);
-		$gravy->holiday()->associate($thanksgiving);
+		$gravy->user()->associate($me);
+		$gravy->holiday()->associate($example);
 		$gravy->save();
-
-		$eat->user()->associate($dog);
-		$eat->holiday()->associate($thanksgiving);
-		$eat->save();
-
-		$merry->user()->associate($hermitcrab);
-		$merry->holiday()->associate($christmas);
-		$merry->save();
 	}
 
 }

@@ -32,8 +32,8 @@
 		{{ Form::label('description')}} <br>
 		{{ Form::textarea('description', $event['description'], ['size' => '30x4']) }}
 		<br>
-		{{ Form::submit() }}
-		<a href="/events" class="btn btn-default btn-sm">Cancel</a>
+		{{ Form::submit('Submit', array('class' => 'btn btn-default')); }}
+		<a href="/events/view/{{$event['id']}}">Cancel</a>
 	{{ Form::close() }}
 
 

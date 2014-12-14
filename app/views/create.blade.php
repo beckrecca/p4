@@ -29,7 +29,7 @@
 		{{ Form::label('description')}} <br>
 		{{ Form::textarea('description', null, ['size' => '30x4']) }}
 		<br>
-		{{ Form::submit() }}
+		{{ Form::submit('Submit', array('class' => 'btn btn-default')); }}
 
 	{{ Form::close() }}
 

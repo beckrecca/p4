@@ -36,7 +36,7 @@
 		{{Form::selectRange('year', 2000, 1900, $dob['year'])}}
         <br>
     <br>
-    {{ Form::submit('Submit') }}
+    {{ Form::submit('Submit', array('class' => 'btn btn-default')); }}
 
 {{ Form::close() }}
 

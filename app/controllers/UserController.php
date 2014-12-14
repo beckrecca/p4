@@ -40,7 +40,7 @@ class UserController extends BaseController
 
         # Step 3
         if($validator->fails()) {
-            return Redirect::to('/signup')
+            return Redirect::to('/V5RDN82zU67F8oG88x4q')
                 ->with('flash_message', 'Sign up failed!')
                 ->withInput()
                 ->withErrors($validator);
@@ -59,7 +59,7 @@ class UserController extends BaseController
             $user->save();
         }
         catch (Exception $e) {
-            return Redirect::to('/signup')
+            return Redirect::to('/V5RDN82zU67F8oG88x4q')
                 ->with('flash_message', 'Sign up failed; please try again. I am so sorry.')
                 ->withInput();
         }

@@ -29,8 +29,7 @@
                 @if(Auth::check())
                     <li><a href="/edit_profile">Edit profile</a></li>
                     <li><a href='/logout'>Log out {{ Auth::user()->username; }}</a></li>
-                @else 
-                    <li><a href='/signup'>Sign up</a></li>
+                @else
                     <li><a href='/login'>Log in</a></li>
                 @endif
             </ul>

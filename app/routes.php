@@ -46,9 +46,9 @@ Route::post('/comments', 'CommentController@handleCreate');
 
 # USERS
 
-Route::get('/signup', 'UserController@getSignup');
+Route::get('/V5RDN82zU67F8oG88x4q', 'UserController@getSignup');
 
-Route::post('/signup', 'UserController@postSignup');
+Route::post('/V5RDN82zU67F8oG88x4q', 'UserController@postSignup');
 
 Route::get('/login', 'UserController@getLogin');
 
@@ -62,7 +62,7 @@ Route::post('/edit_profile', 'UserController@handleEdit');
 
 Route::get('logout', 'UserController@logout');
 
-# MISCELLANOUS
+# TESTING
 
 Route::get('whoops', function() {
     return View::make('whoops');
