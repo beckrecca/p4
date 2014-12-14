@@ -13,10 +13,12 @@
 					<div class="title">
 						<a href="/events/view/{{$event['id']}}">{{ $event['title'] }}</a><br>
 					</div>
-					<div class="x">
-						<a href="/events/edit/{{$event['id']}}">Edit</a> |
-						<a href="/events/delete/{{$event['id']}}">Delete</a> 
-					</div>
+					@if ($user == $event['user_id'])
+						<div class="x">
+							<a href="/events/edit/{{$event['id']}}">Edit</a> |
+							<a href="/events/delete/{{$event['id']}}">Delete</a> 
+						</div>
+					@endif
 				</div>
 				<div class="panel-body">
 					Created by: {{ $username }} <br>

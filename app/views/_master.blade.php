@@ -21,9 +21,9 @@
 <div class="container">
 
      <div class="header">
-        <nav>
+        <nav role ="navigation">
             <ul class="nav nav-pills pull-right">
-                <li><a href="/events" class="active">Home</a></li>
+                <li><a href="/events" id="active">Home</a></li>
                 <li><a href="/events/all">View all events</a></li>
                 <li><a href="/events/create">Create an event</a></li>
                 @if(Auth::check())

@@ -86,7 +86,7 @@ class Holiday extends Eloquent
         $celebrations["md"]["month_name"] = date('F', strtotime('second Sunday of May ' . $year));
         $celebrations["md"]["day"] = date('d', strtotime('second Sunday of May ' . $year));
 
-        $celebrations["memorial"]["name"] = "Memorial day";
+        $celebrations["memorial"]["name"] = "Memorial Day";
         $celebrations["memorial"]["month"] = date('m', strtotime('fourth Monday of May ' . $year));
         $celebrations["memorial"]["month_name"] = date('F', strtotime('fourth Monday of May ' . $year));
         $celebrations["memorial"]["day"] = date('d', strtotime('fourth Monday of May ' . $year));
@@ -110,11 +110,6 @@ class Holiday extends Eloquent
         $celebrations["tday"]["month"] = date('m', strtotime('fourth Thursday of November ' . $year));
         $celebrations["tday"]["month_name"] = date('F', strtotime('fourth Thursday of November ' . $year));
         $celebrations["tday"]["day"] = date('d', strtotime('fourth Thursday of November ' . $year));
-
-        $celebrations["test"]["name"] = "Smoopy Boop";
-        $celebrations["test"]["month"] = 12;
-        $celebrations["test"]["month_name"] = "December";
-        $celebrations["test"]["day"] = 13;
 
         $celebrations["xmas"]["name"] = "Christmas";
         $celebrations["xmas"]["month"] = 12;

@@ -143,7 +143,7 @@ class UserController extends BaseController
                 ->withInput()
                 ->withErrors($validator);
         }
-        if (isset($_POST['new_password'])) {
+        if (!empty($_POST['new_password'])) {
             $user->password = Hash::make($_POST['new_password']);
         }
         $user->username = $_POST['username'];

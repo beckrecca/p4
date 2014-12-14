@@ -101,9 +101,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
         $users = User::all();
 
+
         foreach ($users as $user) {
         	$id = $user->id;
-        	// get the DOB
+        	// get the DOB in a more usable format
         	$DOB = User::DOB($id);
 
         	// if the user's bday is this month

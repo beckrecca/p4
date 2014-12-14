@@ -1,16 +1,34 @@
 .header {
-    border-bottom: 1px #ccc dotted;
+    border-bottom: 1px #BBDAC3 dotted;
 }
-.content {
+a {
+    color: #F35B63;
+}
+a:hover, a:focus {
+    color: #FF9B95;
+}
+.nav.nav-pills.pull-right a {
+    color: #F35B63;
+}
+.nav.nav-pills.pull-right a:hover,  .nav.nav-pills.pull-right a:focus{
+    background-color: #BBDEDC;
+}
+#active {
+    color: #000;
+}
+.content {#BBDAC3
     padding: 0em 2em 0em 2em;
     margin: 1em 0em 1em 0em;
 }
 .project-name {
     margin-bottom: 0;
-    color: #aaa;
+    color: #F35B63;
 }
 small {
     margin-top: 0;
+}
+.jumbotron {
+    background-color: #BBDEDC;
 }
 .event {
     margin: 0.5em 0em 0.5em 0em;
@@ -23,18 +41,22 @@ small {
     float:right;
     padding-bottom: 0.5em;
 }
-.panel-heading {
+.panel-default>.panel-heading {
     padding-bottom: 1.75em;
+    background-color: #E7E7E7;
+}
+.panel-default>.panel-footer {
+    background-color: #E7E7E7;
 }
 .flash-message {
-    background-color: #eee;
+    background-color: #BBDEDC;
     margin: 0.5em 0.5em 0em 0.5em;
     padding: 0.25em;
     text-align: center;
 }
 .error {
     margin: .05em;
-    color: #ff0000;
+    color: #F35B63;
 }
 form, input {
     margin: 0.5em;
@@ -48,22 +70,23 @@ select {
 .bday-today {
     font-weight: bold;
     padding: .2em;
-    border: 1px dotted #F5C7AD;
+    border-bottom: 2px dotted #BBDAC3;
 }
 .holiday-today {
     font-weight: bold;
     padding: .2em;
 }
 .bday {
-    color: #8FACC5;
+    border-bottom: 1px #BBDAC3 dotted;
 }
 .upcoming {
     list-style-type: none;
 }
 .occasion {
-    color: #888;
+    border-bottom: 1px #FF9B95 solid;
+    font-weight: bold;
 }
 .holiday {
     font-weight: bold;
-    color: #3091D1;
+    color: #FF9B95;
 }

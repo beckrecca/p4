@@ -25,10 +25,12 @@ class CommentController extends BaseController
         // Finally, we want to show who created the event
         $username = User::username($event->user_id);
 
+        $user = Auth::id();
         return View::make('create_comment')->with('event', $event)
                                        ->with('comments', $comments)
                                        ->with('users', $users)
-                                       ->with('username', $username);
+                                       ->with('username', $username)
+                                       ->with('user', $user);
 
     }
 
