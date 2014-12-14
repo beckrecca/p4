@@ -36,9 +36,9 @@ small {
     margin: .05em;
     color: #ff0000;
 }
-form {
+form, input {
     margin: 0.5em;
 }
-input {
-    margin: 0.5em;
+select {
+    margin: 0.25em;
 }

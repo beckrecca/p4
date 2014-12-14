@@ -96,7 +96,8 @@ class HolidayController extends BaseController
         $event->description = $_POST['description'];
         $event->user_id = Auth::id();
         $event->save();
-        return Redirect::to('/events');
+        $redirect = "/events/view/" . $event->id;
+        return Redirect::to($redirect);
     }
 
     public function edit($id)
