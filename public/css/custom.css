@@ -26,3 +26,19 @@ small {
 .panel-heading {
     padding-bottom: 1.75em;
 }
+.flash-message {
+    background-color: #eee;
+    margin: 0.5em 0.5em 0em 0.5em;
+    padding: 0.25em;
+    text-align: center;
+}
+.error {
+    margin: .05em;
+    color: #ff0000;
+}
+form {
+    margin: 0.5em;
+}
+input {
+    margin: 0.5em;
+}
