@@ -160,7 +160,7 @@ class UserController extends BaseController
                 ->with('flash_message', 'Edit profile failed; please try again. I am so sorry.')
                 ->withInput();
         }
-        return Redirect::to('/profile')
+        return Redirect::to('/edit_profile')
                         ->with('flash_message', 'Your profile changes were saved.');
     }
 
