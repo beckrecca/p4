@@ -87,4 +87,45 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $DOB;
 	}
 
+	# Find upcoming birthdays 
+	public static function birthdays() {
+		$t = time();
+        $month = date('m', $t);
+        $day = date('d', $t);
+        $year = date('Y', $t);
+
+        $next_month = $month + 1;
+        if ($next_month > 12) $next_month = $next_month - 12;
+
+        $user_bdays = Array();
+
+        $users = User::all();
+
+        foreach ($users as $user) {
+        	$id = $user->id;
+        	// get the DOB
+        	$DOB = User::DOB($id);
+
+        	// if the user's bday is this month
+        	if ($DOB['month'] == $month) {
+        		// if the user's bday is today
+        		if ($DOB['day'] == $day) {
+        			$user_bdays[$user->username] = $user->username . "'s birthday is today!";
+        		}
+        		// if the user's bday is after today
+        		if ($DOB['day'] > $day) {
+        			$user_bdays[$user->username] = $user->username . "'s birthday is on the " . $DOB['day'] . " of this month.";
+        		}
+        	}
+        	// if the user's bday is next month
+        	if ($DOB['month'] == $next_month) {
+        		// get the name of the month
+        		$bday_month = date('F', mktime(0, 0, 0, $DOB['month'], 1, $year));
+        		$user_bdays[$user->username] = $user->username . "'s birthday will be on " . $bday_month . " " . $DOB['day'] . ".";
+        	}
+        }
+
+        return $user_bdays;
+	}
+
 }

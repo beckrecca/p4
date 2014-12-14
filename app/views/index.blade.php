@@ -9,10 +9,10 @@
 	<h4> {{ $header }} </h4>
 
 	@if (isset($events))
-		@foreach ($events as $event)
 		<div class="event">
 			<div class="row">
 				<div class="col-sm-5">
+					@foreach ($events as $event)
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<div class="title">
@@ -38,10 +38,17 @@
 							</div>
 						</div>
 					</div>
+					@endforeach
+				</div>
+				<div class="col-sm-6 col-sm-offset-1">
+					@if (isset($upcoming_birthdays))
+						@foreach ($upcoming_birthdays as $birthday)
+							{{ $birthday }} <br> <br>
+						@endforeach
+					@endif
 				</div>
 			</div>
 		</div>
-		@endforeach
 
 		{{ $events->links() }}
 	@else
