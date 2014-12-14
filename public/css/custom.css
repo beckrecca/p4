@@ -45,12 +45,25 @@ select {
 .comment-link {
     float:right;
 }
-.today {
+.bday-today {
     font-weight: bold;
+    padding: .2em;
+    border: 1px dotted #F5C7AD;
+}
+.holiday-today {
+    font-weight: bold;
+    padding: .2em;
 }
 .bday {
     color: #8FACC5;
 }
 .upcoming {
     list-style-type: none;
+}
+.occasion {
+    color: #888;
+}
+.holiday {
+    font-weight: bold;
+    color: #3091D1;
 }

@@ -41,9 +41,12 @@
 					@endforeach
 				</div>
 				<div class="col-sm-6 col-sm-offset-1">
-					@if (isset($upcoming_birthdays))
+					@if (isset($upcoming_birthdays) || isset($upcoming_occasions))
 					<h4>Celebrate!</h4>
 						<ul class="upcoming">
+						@foreach ($upcoming_occasions as $occasion) 
+							<li>{{ $occasion }} </li>
+						@endforeach
 						@foreach ($upcoming_birthdays as $birthday)
 							<li>{{ $birthday }} </li>
 						@endforeach

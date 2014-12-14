@@ -16,11 +16,13 @@ class HolidayController extends BaseController
         $header = $title = "Upcoming Events";
         $user = Auth::id();
         $upcoming_birthdays = User::birthdays();
+        $upcoming_occasions = Holiday::occasions();
         return View::make('index')->with('events', $events)
                                   ->with('header', $header)
                                   ->with('title', $title)
                                   ->with('user', $user)
-                                  ->with('upcoming_birthdays', $upcoming_birthdays);
+                                  ->with('upcoming_birthdays', $upcoming_birthdays)
+                                  ->with('upcoming_occasions', $upcoming_occasions);
     }
 
     public function all()
