@@ -11,7 +11,7 @@
 	@if (isset($events))
 		<div class="event">
 			<div class="row">
-				<div class="col-sm-5">
+				<div class="col-sm-6">
 					@foreach ($events as $event)
 					<div class="panel panel-default">
 						<div class="panel-heading">
@@ -40,7 +40,7 @@
 					</div>
 					@endforeach
 				</div>
-				<div class="col-sm-6 col-sm-offset-1">
+				<div class="col-sm-6">
 					@if (isset($upcoming_birthdays) || isset($upcoming_occasions))
 					<h4>Celebrate!</h4>
 						<ul class="upcoming">
