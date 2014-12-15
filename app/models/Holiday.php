@@ -70,8 +70,8 @@ class Holiday extends Eloquent
     public static function occasions() {
         $t = time();
         $year = date('Y', $t);
-        $month = date('m', $t);
-        $day = date('d', $t);
+        $month = date('m', $t);;
+        $day = date('d', $t);;
 
         $next_month = $month + 1;
         if ($next_month > 12) $next_month = $next_month - 12;
@@ -108,6 +108,14 @@ class Holiday extends Eloquent
         $celebrations["halloween"]["month_name"] = "October";
         $celebrations["halloween"]["day"] = 31;
 
+        # This is technically a birthday, but Charlotte's a baby and won't be 
+        # a user any time soon.
+
+        $celebrations["cgd"]["name"] = "Charlotte's birthday";
+        $celebrations["cgd"]["month"] = 11;
+        $celebrations["cgd"]["month_name"] = "November";
+        $celebrations["cgd"]["day"] = 8;
+
         $celebrations["tday"]["name"] = "Thanksgiving";
         $celebrations["tday"]["month"] = date('m', strtotime('fourth Thursday of November ' . $year));
         $celebrations["tday"]["month_name"] = date('F', strtotime('fourth Thursday of November ' . $year));
@@ -133,6 +141,10 @@ class Holiday extends Eloquent
                     // change it to merry for Christmas
                     if ($celebration["name"] == "Christmas") {
                         $upcoming[$celebration["name"]] = "<span class='holiday-today'>Merry <span class='holiday'>" . $celebration["name"] . "</span>!</span>";
+                        break;
+                    }
+                    if ($celebration["name"] == "Charlotte's birthday") {
+                        $upcoming[$celebration["name"]] = "<span class='bday-today'>Happy Birthday Charlotte!</span>";
                     }
                     else $upcoming[$celebration["name"]] = "<span class='holiday-today'>Happy <span class='holiday'>" . $celebration["name"] . "</span>!</span>";
                 }
