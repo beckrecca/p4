@@ -99,7 +99,8 @@ class HolidayController extends BaseController
         $event->location = $_POST['location'];
         $time = $_POST['hour'];
         $partofday = $_POST['m'];
-        if ($partofday) {
+        // if $partofday is set to 1, corresponding to PM
+        if ($partofday && $time < 12) {
             $time += 12;
         }
         $time = $time . ":" . $_POST['minute'] . ":00";
@@ -162,7 +163,8 @@ class HolidayController extends BaseController
         $event->location = $_POST['location'];
         $time = $_POST['hour'];
         $partofday = $_POST['m'];
-        if ($partofday) {
+        // if $partofday is set to 1, corresponding to PM
+        if ($partofday && $time < 12) {
             $time += 12;
         }
         $time = $time . ":" . $_POST['minute'] . ":00";
