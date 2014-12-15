@@ -103,6 +103,8 @@ class HolidayController extends BaseController
         if ($partofday && $time < 12) {
             $time += 12;
         }
+        // if it's midnight!
+        if (!$partofday && $time == 12) $time = "00";
         $time = $time . ":" . $_POST['minute'] . ":00";
         $event->when = $_POST['date'] . " " . $time;
         $event->description = $_POST['description'];
@@ -167,6 +169,8 @@ class HolidayController extends BaseController
         if ($partofday && $time < 12) {
             $time += 12;
         }
+        // if it's midnight!
+        if (!$partofday && $time == 12) $time = "00";
         $time = $time . ":" . $_POST['minute'] . ":00";
         $event->when = $_POST['date'] . " " . $time;
         $event->description = $_POST['description'];
