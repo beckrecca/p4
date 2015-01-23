@@ -23,14 +23,14 @@
      <div class="header">
         <nav role ="navigation">
             <ul class="nav nav-pills pull-right">
-                <li><a href="/events" id="active">Home</a></li>
-                <li><a href="/events/all">View all events</a></li>
-                <li><a href="/events/create">Create an event</a></li>
+                <li><a href="http://dorisdays.beckrecca.me/events" id="active">Home</a></li>
+                <li><a href="http://dorisdays.beckrecca.me/events/all">View all events</a></li>
+                <li><a href="http://dorisdays.beckrecca.me/events/create">Create an event</a></li>
                 @if(Auth::check())
-                    <li><a href="/edit_profile">Edit profile</a></li>
-                    <li><a href='/logout'>Log out {{ Auth::user()->username; }}</a></li>
+                    <li><a href="http://dorisdays.beckrecca.me/edit_profile">Edit profile</a></li>
+                    <li><a href='http://dorisdays.beckrecca.me/logout'>Log out {{ Auth::user()->username; }}</a></li>
                 @else
-                    <li><a href='/login'>Log in</a></li>
+                    <li><a href='http://dorisdays.beckrecca.me/login'>Log in</a></li>
                 @endif
             </ul>
         </nav>
